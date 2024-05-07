@@ -11,27 +11,27 @@ The Geo-YOLO-Pipeline is a geospatial processing pipeline developed to facilitat
 - **Shapefile Generation**: Converts YOLO detection outputs back into geospatial formats (shapefiles) for GIS analysis.
 
 ## Prerequisites
-Before you begin, ensure you have Python 3.6+ installed on your machine. Additionally, the following Python libraries are required and can be installed via pip:
+Before you begin, ensure you have Python 3.8+ installed on your machine. Additionally, the following Python libraries are required and can be installed via pip:
 
-bash
-pip install geopandas rasterio shapely tqdm pillow
-
+```bash
+pip install -r requirements.txt
+```
 
 ## Installation
 Clone the repository using:
-bash
+```bash
 git clone https://github.com/SakaiVitor/Geo-YOLO-Pipeline.git
 cd Geo-YOLO-Pipeline
-
+```
 
 ## Usage
 To use the pipeline, follow these steps:
 
 1. **Prepare Your Data**: Place your GeoTIFF images in the appropriate directory.
 2. **Run the Pipeline**:
-   bash
+   ```bash
    python main.py
-   
+   ```
    Modify `main.py` as needed to point to your specific files and output directories.
 
 ## Step-by-Step Operation
