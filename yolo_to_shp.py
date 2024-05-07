@@ -40,6 +40,7 @@ def create_shapefile_from_detections(txt_folder, tif_folder, output_folder):
     with ThreadPoolExecutor(max_workers=8) as executor:
         list(tqdm(executor.map(lambda p: process_detection(*p), tasks), total=len(tasks), desc="Processing shapefiles"))
 
+
 if __name__ == "__main__":
     txt_folder = 'runs/detect/predict/labels'
     tif_folder = 'tiled_out'
