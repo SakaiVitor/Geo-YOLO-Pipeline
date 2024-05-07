@@ -2,7 +2,10 @@
 # Requirements file for Geo-YOLO-Pipeline
 
 numpy
-opencv-python
 Pillow
-GDAL
-pyshp
+rasterio
+tqdm
+geopandas
+pandas
+shapely
+ultralytics
