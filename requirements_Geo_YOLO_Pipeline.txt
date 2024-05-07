@@ -1,0 +1,8 @@
+
+# Requirements file for Geo-YOLO-Pipeline
+
+numpy
+opencv-python
+Pillow
+GDAL
+pyshp
