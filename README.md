@@ -1,41 +1,45 @@
 
-## README for Geo-YOLO-Pipeline
+# Geo-YOLO-Pipeline
 
-### Overview
-The Geo-YOLO-Pipeline is a Python-based toolkit designed for transforming geospatial data into a format suitable for object detection using the YOLO (You Only Look Once) model. It provides tools to convert TIFF images to PNG, merge shapefiles, and prepare datasets for YOLO detection models. This repository offers a streamlined process for converting geospatial raster data into tiled images, detecting objects within those images, and converting the results back into geospatial formats (shapefiles).
+## Description
+The Geo-YOLO-Pipeline is a geospatial processing pipeline developed to facilitate object detection in geospatial images using the YOLO (You Only Look Once) model. This pipeline automates the conversion of GeoTIFF images into formats suitable for training and inference with YOLO, and subsequently converts model outputs into shapefiles for use in Geographic Information Systems (GIS).
 
-### Key Features
-- **TIFF to PNG Conversion:** Convert TIFF images to PNG format for compatibility with many image processing libraries.
-- **Shapefile Merging:** Combine multiple shapefiles into a single, comprehensive file.
-- **Geotiff Tiling:** Slice large geotiff images into smaller tiles, optimized for object detection.
-- **YOLO Detection:** Run object detection on tiled images using a pre-trained YOLO model.
-- **Shapefile Generation:** Convert YOLO detection results back into geospatial shapefile format.
+## Features
+- **GeoTIFF Image Tiling**: Splits large GeoTIFF images into smaller, manageable tiles.
+- **Conversion to PNG**: Converts GeoTIFF tiles into PNG images suitable for YOLO processing.
+- **Object Detection with YOLO**: Uses YOLO models to detect objects in PNG images.
+- **Shapefile Generation**: Converts YOLO detection outputs back into geospatial formats (shapefiles) for GIS analysis.
 
-### Files and Usage
-- `tif_to_png.py`: Script to convert TIFF images to PNG format.
-- `merge_shapefiles.py`: Script to merge multiple shapefiles into one.
-- `main.py`: The main pipeline script that orchestrates the conversion, detection, and shapefile generation processes.
-- `geotiff_tiler.py`: Script to break down geotiff images into smaller, manageable tiles.
-- `yolo_to_shp.py`: Convert YOLO model outputs into shapefiles.
-- `yolo_detection.py`: Perform object detection using the YOLO model on tiled images.
+## Prerequisites
+Before you begin, ensure you have Python 3.6+ installed on your machine. Additionally, the following Python libraries are required and can be installed via pip:
 
-### Getting Started
-1. **Clone the repository:**
-   ```
-   git clone https://github.com/SakaiVitor/Geo-YOLO-Pipeline.git
-   ```
-2. **Install Dependencies:**
-   Ensure Python 3.x is installed along with the necessary packages:
-   ```
-   pip install -r requirements.txt
-   ```
-3. **Running the Pipeline:**
-   Execute the `main.py` to start the processing pipeline:
-   ```
+\```bash
+pip install geopandas rasterio shapely tqdm pillow
+\```
+
+## Installation
+Clone the repository using:
+\```bash
+git clone https://github.com/SakaiVitor/Geo-YOLO-Pipeline.git
+cd Geo-YOLO-Pipeline
+\```
+
+## Usage
+To use the pipeline, follow these steps:
+
+1. **Prepare Your Data**: Place your GeoTIFF images in the appropriate directory.
+2. **Run the Pipeline**:
+   \```bash
    python main.py
-   ```
+   \```
+   Modify `main.py` as needed to point to your specific files and output directories.
 
-### Requirements
-- Python 3.x
-- Libraries: Listed in `requirements.txt`
+## Step-by-Step Operation
+1. **Dividing GeoTIFF Images**: Large GeoTIFF images are split into smaller tiles, typically 320x320 pixels, to fit the input size requirements of YOLO and to make processing manageable.
+2. **Converting to PNG**: The tiles are converted from GeoTIFF to PNG format, which is necessary for YOLO processing.
+3. **Object Detection Using YOLO**: The YOLO model performs object detection on these PNG images. The results are saved as text files containing bounding box coordinates and object classifications.
+4. **Converting Detections into Shapefiles**: The bounding box coordinates are converted back into the geospatial coordinates of the original GeoTIFF files. This allows the detection results to be visualized and analyzed in GIS software.
+5. **Concatenating Shapefiles**: After processing multiple tiles, each resulting in an individual shapefile, this step merges all these shapefiles into a single file. This facilitates the overall visualization and analysis of detection results on one GIS layer.
 
+## Authors
+- **Vitor Sakai** - *Initial work* - [SakaiVitor](https://github.com/SakaiVitor)
