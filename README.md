@@ -39,8 +39,3 @@ The Geo-YOLO-Pipeline is a Python-based toolkit designed for transforming geospa
 - Python 3.x
 - Libraries: Listed in `requirements.txt`
 
-### Contributions
-Contributions to the Geo-YOLO-Pipeline are welcome. Please ensure to follow the existing coding style, write tests, and provide adequate documentation for your contributions.
-
-### License
-The project is released under the [MIT License](LICENSE).
